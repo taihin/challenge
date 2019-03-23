@@ -4,7 +4,7 @@ import * as mkdirp from "mkdirp";
 import * as path from   "path";
 const jsonReports = path.join(process.cwd(),"/reports/json");
 const htmlReports = path.join(process.cwd(), "/reports/html");
-const targetJson = jsonReports + "/cucumber_reports.json";
+const targetJson = jsonReports + "/cucumber_report.json";
 
 const cucumberReporterOptions = {
     jsonFile: targetJson,

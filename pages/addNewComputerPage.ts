@@ -6,7 +6,7 @@ export class AddNewComputerPage{
     private fieldIntroDate: ElementFinder;
     private fieldDiscontinuedDate: ElementFinder;
     private dropdownCompany: ElementFinder;
-    private optionCompany: ElementFinder;
+    private firstOptionCompany: ElementFinder;
     private bulls: ElementFinder;
     private btnCreate: ElementFinder;
     private option: string;
@@ -16,7 +16,7 @@ export class AddNewComputerPage{
         this.fieldIntroDate = $("#introduced");
         this.fieldDiscontinuedDate = $("#discontinued");
         this.dropdownCompany = $("#company");
-        this.optionCompany =   $("option[value='1']");
+        this.firstOptionCompany =   $("option[value='1']");
         this.btnCreate = $("input[type=submit]");
        this.bulls=$("xxx");
     }
@@ -34,10 +34,10 @@ export class AddNewComputerPage{
         return await this.fieldDiscontinuedDate.sendKeys(date);
     }
 
-    public async chooseCompany(companyName:string){
+    public async chooseFirstCompany(){
         await this.dropdownCompany.click();
 
-        await this.optionCompany.click();
+        await this.firstOptionCompany.click();
 
         await this.dropdownCompany.click();
        
