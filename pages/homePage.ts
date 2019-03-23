@@ -6,7 +6,11 @@ export class HomePage{
     public msg: ElementFinder;
 
     constructor(){
-        this.btnAddANewComputer = $("x");
+        this.btnAddANewComputer = $("#add");
         this.msg = $("y");
+    }
+
+    public async ClickOnButtonAddNewComputer(){
+        await this.btnAddANewComputer.click();
     }
 }

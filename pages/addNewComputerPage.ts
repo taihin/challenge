@@ -1,45 +1,52 @@
-import {$,ElementFinder} from "protractor"
+import {$,ElementFinder, browser} from "protractor"
 
-export class addNewComputerPage{
+export class AddNewComputerPage{
 
     private fieldComputerName: ElementFinder;
     private fieldIntroDate: ElementFinder;
     private fieldDiscontinuedDate: ElementFinder;
     private dropdownCompany: ElementFinder;
     private optionCompany: ElementFinder;
+    private bulls: ElementFinder;
     private btnCreate: ElementFinder;
+    private option: string;
     
     constructor(){
-        this.fieldComputerName = $("x");
-        this.fieldIntroDate = $("x");
-        this.fieldDiscontinuedDate = $("x");
-        this.dropdownCompany = $("x");
-        this.optionCompany = this.dropdownCompany
-        this.btnCreate = $("");
-       
+        this.fieldComputerName = $("#name");
+        this.fieldIntroDate = $("#introduced");
+        this.fieldDiscontinuedDate = $("#discontinued");
+        this.dropdownCompany = $("#company");
+        this.optionCompany =   $("option[value='1']");
+        this.btnCreate = $("input[type=submit]");
+       this.bulls=$("xxx");
     }
     
-    public enternComputerName(name:string){
-        this.fieldComputerName.sendKeys(name);
+    public async enterComputerName(name:string){
+        return await this.fieldComputerName.sendKeys(name);
+ 
     }
 
-    public enterIntroDate(name:string){
-        this.fieldComputerName.sendKeys(name);
+    public async enterIntroDate(date:string){
+        return await this.fieldIntroDate.sendKeys(date);
     }
 
-    public enterDiscontinuedDate(name:string){
-        this.fieldComputerName.sendKeys(name);
+    public async enterDiscontinuedDate(date:string){
+        return await this.fieldDiscontinuedDate.sendKeys(date);
     }
 
-    //public chooseCompany(name:string){
-    //    selectOption(selector, item)
-    //    this.dropdownCompany.;
-    // }
+    public async chooseCompany(companyName:string){
+        await this.dropdownCompany.click();
 
-   public clickBtnCreate(){
-       this.btnCreate.click();
+        await this.optionCompany.click();
+
+        await this.dropdownCompany.click();
+       
+     }
+
+   public async clickBtnCreate(){
+    await this.btnCreate.click();
+
    }
-
 
     //https://coderwall.com/p/tjx5zg/selecting-a-dropdown-option-with-webdriverjs
 

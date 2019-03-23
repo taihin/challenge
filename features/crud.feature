@@ -1,3 +1,4 @@
+@CRUD
 Feature: To perform CRUD operation for database keeping track of the computers 
 
 As a PC lease company
@@ -7,6 +8,6 @@ So that I can take proer action on them
 
 @Create
 Scenario: Successfully create a computer
-Given I am on the Computer Database homepage 
+Given I am on the Computer Database homepage
 When I add a computer in the system
-Then I should see the message that the computer is indeed added into the system
+Then I should see a message that the computer is successfully added into the system
