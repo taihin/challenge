@@ -1,9 +1,8 @@
-import {$,ElementFinder, element, by} from "protractor"
+import {$,ElementFinder, element, by} from "protractor";
 
 export class TopMenu{
 
     private playSampleApplicationLink: ElementFinder;
-
 
     constructor(){
         this.playSampleApplicationLink = element(by.xpath("//a[contains(text(), 'Play sample application')]"));
@@ -13,5 +12,5 @@ export class TopMenu{
         await this.playSampleApplicationLink.click();
         
     }
-    
+
 }

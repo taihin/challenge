@@ -25,6 +25,7 @@ export const config: Config = {
     onPrepare: () => {
         browser.ignoreSynchronization = true;
         browser.manage().window().maximize();
+        browser.manage().timeouts().implicitlyWait(10000);
         Reporter.createDirectory(jsonReports);
     },
 
@@ -33,7 +34,7 @@ export const config: Config = {
         format: "json:./reports/json/cucumber_report.json",
         require: ["../../typeScript/stepdefinitions/*.js", "../../typeScript/support/*.js"],
         strict: true,
-        tags: "@create or @crud",
+        tags: "@crud",
     },
 
     onComplete: () => {

@@ -1,12 +1,14 @@
-const {BeforeAll,After,AfterAll,Status} = require("cucumber");
+const {BeforeAll,Before,After,AfterAll,Status} = require("cucumber");
 import * as fs from "fs";
 import { browser } from "protractor";
 import {config} from "../config/config"
 
-BeforeAll({timeout:100 * 1000}, async () =>{
-    browser.manage().timeouts().implicitlyWait(10000);
+Before({timeout:100 * 1000}, async () =>{
+    
     await browser.get(config.baseUrl);
 });
+
+
 
 After(async function(scenario){
     if(scenario.result.status === Status.FAILED){

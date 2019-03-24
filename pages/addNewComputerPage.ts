@@ -1,4 +1,4 @@
-import {$,ElementFinder, browser} from "protractor"
+import {$,ElementFinder, browser} from "protractor";
 
 export class AddNewComputerPage{
 
@@ -7,9 +7,7 @@ export class AddNewComputerPage{
     private fieldDiscontinuedDate: ElementFinder;
     private dropdownCompany: ElementFinder;
     private firstOptionCompany: ElementFinder;
-    private bulls: ElementFinder;
     private btnCreate: ElementFinder;
-    private option: string;
     
     constructor(){
         this.fieldComputerName = $("#name");
@@ -18,7 +16,16 @@ export class AddNewComputerPage{
         this.dropdownCompany = $("#company");
         this.firstOptionCompany =   $("option[value='1']");
         this.btnCreate = $("input[type=submit]");
-       this.bulls=$("xxx");
+    }
+    
+    public async addANewComputer(name:string, introDate :string, discontinuedDate :string, hasCompanyName: boolean){
+        await this.enterComputerName(name);
+        await this.enterIntroDate(introDate);
+        await this.enterDiscontinuedDate(discontinuedDate);
+        if (hasCompanyName){
+             await this.chooseFirstCompany();
+        }
+        await this.clickBtnCreate();
     }
     
     public async enterComputerName(name:string){
@@ -47,7 +54,5 @@ export class AddNewComputerPage{
     await this.btnCreate.click();
 
    }
-
-    //https://coderwall.com/p/tjx5zg/selecting-a-dropdown-option-with-webdriverjs
 
 }
